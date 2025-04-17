@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div>
       <Banner />
-      <section>
+      <section className="max-w-[1200px] mx-auto px-0 md:px-10 lg:px-0 justify-items-center">
         <h1 className="text-center mt-10 text-4xl text-green-900 font-bold">
           Books
         </h1>
