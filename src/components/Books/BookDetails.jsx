@@ -42,12 +42,9 @@ const BookDetails = () => {
           <hr className="text-gray-300 w-150" />
           <p className="text-gray-400 my-2">{category}</p>
           <hr className="text-gray-300 w-150" />
-          <p className="text-gray-500 my-2 w-150">
+          <p className="text-gray-500 my-2 w-170 text-justify">
             <span className="font-bold text-black">Review </span>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel
-            facilis voluptas dolore voluptatibus distinctio doloribus rem eos
-            quas provident aliquam. Lorem ipsum, dolor sit amet consectetur
-            adipisicing elit. Nulla, sapiente?
+            {review}
           </p>
           <hr className="text-gray-300 w-150" />
 
