@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData, useNavigate, useParams } from "react-router";
+import { addToStore } from "../../Utilites/AddToDB";
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -25,6 +26,10 @@ const BookDetails = () => {
 
   const handleBackToHome = () => {
     navigate("/");
+  };
+
+  const handleMarkAsRead = (id) => {
+    addToStore(id);
   };
 
   return (
@@ -67,7 +72,12 @@ const BookDetails = () => {
             </div>
           </div>
           <div className="flex gap-4 mt-10">
-            <button className="btn btn-outline">Mark as Read</button>
+            <button
+              onClick={() => handleMarkAsRead(id)}
+              className="btn btn-outline"
+            >
+              Mark as Read
+            </button>
             <button className="btn bg-green-800 text-white border-0">
               Add to wishlist
             </button>

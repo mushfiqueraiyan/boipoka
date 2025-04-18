@@ -4,6 +4,7 @@ import Home from "../components/Home";
 import Root from "../Root";
 import About from "../components/About";
 import BookDetails from "../components/Books/BookDetails";
+import ReadList from "../components/ReadList";
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +30,11 @@ export const router = createBrowserRouter([
             return res.json();
           }),
         element: <BookDetails />,
+      },
+      {
+        path: "/readlist",
+        loader: () => fetch("/booksData.json"),
+        element: <ReadList />,
       },
     ],
   },
