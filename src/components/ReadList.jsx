@@ -10,6 +10,7 @@ const ReadList = () => {
   //   console.log(data);
 
   const [readList, setReadList] = useState([]);
+  const [sort, setSort] = useState("");
 
   useEffect(() => {
     const storedBookData = getStoredBook();
@@ -22,8 +23,44 @@ const ReadList = () => {
     setReadList(myReadList);
   }, []);
 
+  const handleSort = (type) => {
+    setSort(type);
+
+    if (type === "pages") {
+      const sortedPages = [...readList].sort(
+        (a, b) => a.totalPages - b.totalPages
+      );
+      setReadList(sortedPages);
+    }
+    if (type === "rating") {
+      const sortedPages = [...readList].sort((a, b) => a.rating - b.rating);
+      setReadList(sortedPages);
+    }
+  };
+
   return (
     <div className="mt-5">
+      <div className="dropdown my-5">
+        <div
+          tabIndex={0}
+          role="button"
+          className="btn m-1 bg-green-800 text-white"
+        >
+          Sort By {sort ? sort : ""}
+        </div>
+        <ul
+          tabIndex={0}
+          className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-xl"
+        >
+          <li>
+            <a onClick={() => handleSort("rating")}>Sort by Rating</a>
+          </li>
+          <li>
+            <a onClick={() => handleSort("pages")}>Sort By Pages</a>
+          </li>
+        </ul>
+      </div>
+      {/* Tabs section */}
       <Tabs>
         <TabList>
           <Tab>
